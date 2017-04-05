@@ -1,0 +1,2 @@
+app: rails s
+assets: webpack --progress --colors --watch

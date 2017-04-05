@@ -1,0 +1,20 @@
+h1 = "#{@event.name} (#{@event.teams_count} teams)"
+
+- if @event.teams.empty?
+  = link_to 'Generate Teams', event_create_teams_path(@event), class: 'uk-button uk-button-primary', method: :post
+- else
+  h2 Teams
+  = link_to 'Reroll Teams', event_create_teams_path(@event), class: 'uk-button uk-button-primary', method: :post
+  .uk-margin
+  .uk-grid.uk-grid-match
+    - @event.teams.each do |team|
+      .team-card.uk-width-1-2
+        .uk-card.uk-card-default.uk-card-body
+          h3.uk-card-title = team.name
+          - team.users.each do |user|
+            li.player
+              = image_tag "https://robohash.org/#{user.nickname}.png?set=set3&size=60x60"
+              span = user.nickname
+
+
+

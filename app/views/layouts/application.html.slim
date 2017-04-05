@@ -1,0 +1,27 @@
+doctype html
+html
+  head
+    title Perteam
+      = csrf_meta_tags
+
+    = stylesheet_link_tag    fingerprinted_asset('application'), media: 'all'
+  body
+    = render 'components/navbar'
+    .uk-container.uk-margin
+      .uk-grid
+        .uk-width-3-4
+          = yield
+        .uk-width-1-4
+          .players-sidebar
+            h2.text-center Players (#{User.count})
+
+            - if User.count == 0
+              div.text-center No Players Yet
+            - else
+              ul.players-list
+                - User.find_each do |player|
+                  li.player
+                    = image_tag "https://robohash.org/#{player.nickname}.png?set=set3&size=60x60"
+                    span = player.nickname
+
+    = javascript_include_tag fingerprinted_asset('application')

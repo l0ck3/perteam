@@ -1,0 +1,15 @@
+header.navigation
+  nav.uk-navbar-container.uk-margin.uk-navbar uk-navbar=""
+    .uk-navbar-left
+      a.uk-navbar-item.uk-logo href="#"  PerTeam
+      ul.uk-navbar-nav
+        li
+          = link_to 'Sessions', events_path
+        li
+          = link_to 'Teams', teams_path
+
+    .actions.uk-navbar-right
+      .uk-navbar-item
+        = link_to 'Create Player', new_user_path, class: 'uk-button uk-button-primary'
+      .uk-navbar-item
+        = link_to 'Create Session', new_event_path, class: 'uk-button uk-button-primary'

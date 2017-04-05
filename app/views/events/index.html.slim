@@ -1,0 +1,11 @@
+.events
+  h1 Sessions
+
+  - if @events.empty?
+    span No sessions yet
+  - else 
+    ul
+      - @events.each do |event|
+        li 
+          = link_to event.name, event_path(event)
+

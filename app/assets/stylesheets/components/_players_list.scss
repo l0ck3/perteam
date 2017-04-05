@@ -1,0 +1,15 @@
+.players-list {
+  list-style: none;
+  padding: none;
+  border-left: 1px solid;
+
+  > .player {
+    margin-bottom: 30px;
+    
+    > img {
+      @extend .uk-border-circle;
+      border: 1px solid lightgray;
+      margin-right: 20px;
+    }
+  }
+}

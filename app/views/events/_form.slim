@@ -1,0 +1,13 @@
+= form_for @event, html: { class: 'uk-form-horizontal' } do |f|
+  fieldset.uk-fieldset
+    legend.uk-legend Create a session
+    .uk-margin
+    = f.label :name, class: 'uk-form-label'
+    .uk-form-controls
+      = f.text_field :name, class: 'uk-input'
+    .uk-margin
+    = f.label :teams_count, class: 'uk-form-label'
+    .uk-form-controls
+      = f.number_field :teams_count, class: 'uk-input'      
+    .uk-margin
+    = f.submit 'Sumbit', class: 'uk-button uk-button-primary'

@@ -1,0 +1,9 @@
+= form_for @user, html: { class: 'uk-form-horizontal' } do |f|
+  fieldset.uk-fieldset
+    legend.uk-legend Create a Player
+    .uk-margin
+    = f.label :nickname, class: 'uk-form-label'
+    .uk-form-controls
+      = f.text_field :nickname, class: 'uk-input'
+
+    = f.submit 'Sumbit', class: 'uk-button uk-button-primary'
