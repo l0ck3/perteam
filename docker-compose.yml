@@ -1,0 +1,31 @@
+version: "2"
+
+volumes:
+  db-data:
+    external: false
+
+services:
+  db:
+    image: postgres:9.6-alpine
+    env_file: .env.development
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+  app:
+    build: .
+    image: perteam/app
+    env_file: .env.development
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+
+  frontend:
+    image: perteam/app
+    env_file: .env.development
+    volumes_from:
+      - app
+    command: webpack --progress --colors --watch

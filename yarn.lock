@@ -1801,8 +1801,8 @@ ms@0.7.2:
   resolved "https://registry.yarnpkg.com/ms/-/ms-0.7.2.tgz#ae25cf2512b3885a1d95d7f037868d8431124765"
 
 nan@^2.3.0, nan@^2.3.2:
-  version "2.5.1"
-  resolved "https://registry.yarnpkg.com/nan/-/nan-2.5.1.tgz#d5b01691253326a97a2bbee9e61c55d8d60351e2"
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/nan/-/nan-2.6.0.tgz#b9b0a907d796d0d336fd73afce24f5e1aa929934"
 
 node-gyp@^3.3.1:
   version "3.6.0"
