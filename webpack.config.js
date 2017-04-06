@@ -3,8 +3,9 @@ const webpack = require("webpack");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 const prod = process.argv.indexOf('-p') !== -1;
-const css_output_template = prod ? "assets/[name]-[hash].css" : "stylesheets/[name].css";
-const js_output_template = prod ? "assets/[name]-[hash].js" : "javascripts/[name].js";
+console.log('Production?', prod);
+const css_output_template = prod ? "stylesheets/[name]-[hash].css" : "stylesheets/[name].css";
+const js_output_template = prod ? "javascripts/[name]-[hash].js" : "javascripts/[name].js";
 
 module.exports = {
   context: __dirname + "/app/assets",
@@ -44,7 +45,7 @@ module.exports = {
       // delete previous outputs
       this.plugin("compile", function() {
         let basepath = __dirname + "/public";
-        let paths = ["/javascripts", "/stylesheets", "/assets"];
+        let paths = ["/javascripts", "/stylesheets"];
 
         for (let x = 0; x < paths.length; x++) {
           const asset_path = basepath + paths[x];

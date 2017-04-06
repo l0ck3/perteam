@@ -1,0 +1,29 @@
+stack: perteam/perteam
+version: 0.1.0
+
+services:
+  db:
+    image: postgres:9.6-alpine
+    stateful: true
+    env_file: .env.production
+
+  app:
+    instances: 1
+    build:
+      context: .
+      dockerfile: Dockerfile.production
+    image: l0ck3/perteam
+    env_file: .env.production
+    depends_on:
+      - db
+    ports:
+      - 3000:3000
+    hooks:
+      post_start:
+        - name: db create
+          cmd: rails db:create
+          instances: 1
+          oneshot: true
+        - name: db migrate
+          cmd: rails db:migrate
+          instances: 1
